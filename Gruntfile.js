@@ -3,7 +3,20 @@
 var source = [
 
     './src/tool.js',
-    './src/clipboard.js'
+
+    /**
+     * -------------
+     * 对外提供的，常用web端编程方法
+     */
+
+    // 和剪切板有关的方法
+    './src/clipboard.js',
+
+    // 动画/轮播相关方法
+    './src/animation.js',
+
+    // 操作html/svg结点相关
+    './src/dom.js'
 
 ];
 

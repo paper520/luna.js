@@ -9,4 +9,4 @@ var _string_to_dom = function (html_string) {
 // 判断是不是一个结点
 var _is_dom = function (dom) {
     return (dom && (dom.nodeType === 1 || dom.nodeType === 11 || dom.nodeType === 9));
-};  
+};

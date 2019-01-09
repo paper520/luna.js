@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>luna.js - 测试</title>
+    <link rel="shortcut icon" href="../luna.png" type="image/x-png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="luna.js - 测试" />
+    <meta name="description" content="luna.js - 测试" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <script src="../build/luna.js"></script>
+</head>
+
+<body>
+
+    <script>
+
+        // 准备数据
+        document.getElementsByTagName('body')[0].innerHTML = (function getMenuTemplate(node) {
+            var child = node.list;
+            if (!child || child.length <= 0) {
+                return "<li><span class='item file'>" + node.name + "</span></li>";
+            }
+            var template = "<ul>", flag;
+            for (flag in child) {
+                template += getMenuTemplate(child[flag]);
+            }
+            template += "</ul>";
+            return "<li><span class='item folder'  state='open'>" + node.name + "</span>" + template + "</li>";
+        })({
+            "name": "前端",
+            "list": [{
+                "name": "核心",
+                "list": [{
+                    "name": "HTML"
+                }, {
+                    "name": "CSS"
+                }, {
+                    "name": "ES"
+                }]
+            }, {
+                "name": "安全"
+            }, {
+                "name": "计算机",
+                "list": [{
+                    "name": "算法",
+                    "list": [{
+                        "name": "思想",
+                        "list": [{
+                            "name": "分治"
+                        }, {
+                            "name": "回溯"
+                        }, {
+                            "name": "限界"
+                        }, {
+                            "name": "贪心"
+                        }]
+                    }, {
+                        "name": "模式"
+                    }]
+                }]
+            }, {
+                "name": "工具"
+            }, {
+                "name": "规范"
+            }, {
+                "name": "库",
+                "list": [{
+                    "name": "绘图 & 数据可视化",
+                    "list": [{
+                        "name": "clay.js"
+                    }, {
+                        "name": "d3.js"
+                    }, {
+                        "name": "three.js"
+                    }]
+                }, {
+                    "name": "jquery"
+                }]
+            }]
+        });
+
+        /**
+         * =======================================
+         * 开始测试
+        */
+
+        var lis = document.getElementsByTagName('li');
+
+        console.warn('----------dom_styles---------');
+        console.log(luna.dom_styles(lis[0]));
+        console.log(luna.dom_styles(lis[0], 'color'));
+
+    </script>
+
+</body>
+
+</html>

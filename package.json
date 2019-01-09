@@ -1,6 +1,6 @@
 {
   "name": "luna-library",
-  "version": "1.2.0next",
+  "version": "2.0.0",
   "description": "Provides a quick and fragmented approach to common web-side!",
   "main": "build/luna.js",
   "scripts": {
@@ -21,5 +21,13 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yelloxing/luna.js/issues"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^2.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.0"
   }
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>luna.js - 测试</title>
+    <link rel="shortcut icon" href="../luna.png" type="image/x-png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="luna.js - 测试" />
+    <meta name="description" content="luna.js - 测试" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <script src="../build/luna.js"></script>
+</head>
+
+<body>
+
+    <script>
+
+        // 启动二个动画
+        var stop = luna.animation(function (deep) {
+            console.log("动画一：" + deep);
+        }, 10000, function (deep) {
+            console.warn('end! ' + deep);
+        });
+
+        luna.animation(function (deep) {
+            console.log("动画二：" + deep);
+        }, 5000, function (deep) {
+            console.warn('end! ' + deep);
+        });
+
+        // 提前停止第一个
+        setTimeout(function () {
+            stop();
+        }, 1000);
+
+    </script>
+
+</body>
+
+</html>
