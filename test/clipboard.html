@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>luna.js - 测试</title>
+    <link rel="shortcut icon" href="../luna.png" type="image/x-png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="luna.js - 测试" />
+    <meta name="description" content="luna.js - 测试" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <script src="../build/luna.js"></script>
+    <script>
+
+        function text_copy() {
+
+            luna.clipboard_copy('如果你看见这段文字，表示测试通过【luna.js / clipboard】', function () {
+                alert('复制成功，请试着ctrl+v粘贴一下看看内容！');
+            }, function () {
+                alert('复制失败！');
+            });
+        }
+
+        function node_copy() {
+
+            luna.clipboard_copy(document.getElementsByTagName('div')[0], function () {
+                alert('复制成功，请试着ctrl+v粘贴一下看看内容！');
+            }, function () {
+                alert('复制失败！');
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <span style='color:red;'>
+        如果你看见这段文字，表示测试通过【luna.js / clipboard】
+    </span>
+
+    <h6>
+        按钮 / 复制
+    </h6>
+    <input type="button" value="复制文本" onclick='text_copy()'>
+    <input type="button" value="复制结点内容" onclick='node_copy()'>
+
+</body>
+
+</html>

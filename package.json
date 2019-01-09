@@ -1,0 +1,25 @@
+{
+  "name": "luna-library",
+  "version": "1.2.0next",
+  "description": "Provides a quick and fragmented approach to common web-side!",
+  "main": "build/luna.js",
+  "scripts": {
+    "release": "node_modules/.bin/grunt release",
+    "server": "node_modules/.bin/grunt server",
+    "start": "npm install && npm run release"
+  },
+  "keywords": [
+    "es",
+    "es5"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yelloxing/luna.js.git"
+  },
+  "author": "心叶",
+  "email": "yelloxing@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yelloxing/luna.js/issues"
+  }
+}
