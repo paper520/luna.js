@@ -4,14 +4,14 @@
 * 
 * author 心叶
 *
-* version 2.0.0
+* version 2.0.0next
 * 
 * build Sat Jul 01 2017
 *
 * Copyright yelloxing
 * Released under the MIT license
 * 
-* Date:Wed Jan 09 2019 15:05:44 GMT+0800 (GMT+08:00)
+* Date:Wed Jan 09 2019 15:12:42 GMT+0800 (GMT+08:00)
 */
 /**
  * 浏览器端使用
@@ -196,7 +196,7 @@ luna.dom_styles = function (dom, name) {
         }
     }
 };
-    luna.version = '2.0.0';
+    luna.version = '2.0.0next';
     luna.author = '心叶';
 
     return luna;

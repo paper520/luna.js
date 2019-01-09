@@ -1,6 +1,6 @@
 {
   "name": "luna-library",
-  "version": "2.0.0",
+  "version": "2.0.0next",
   "description": "Provides a quick and fragmented approach to common web-side!",
   "main": "build/luna.js",
   "scripts": {
