@@ -40,27 +40,19 @@ module.exports = function (grunt) {
     /*配置插件*/
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        concat: { //合并代码
+        insert: { // 合并代码
             options: {
-                separator: '\n',
-                stripBanners: true
+                banner: banner,
+                link: "\n"
             },
             target: {
-                src: source,
-                dest: 'build/.temp'
-            }
-        },
-        build: {//自定义插入合并
-            target: {
-                banner: banner,
-                src: 'build/.temp',
-                info: ['<%= pkg.version %>', '<%= pkg.author %>'],
-                dest: ['build/luna.js']
-            }
-        },
-        clean: {// 删除临时文件
-            target: {
-                src: ['build/.temp']
+                options: {
+                    separator: '// @CODE build.js inserts compiled luna.js here',
+                    target: 'src/core.js'
+                },
+                files: {
+                    'build/luna.js': source
+                }
             }
         },
         jshint: { //语法检查
@@ -120,16 +112,12 @@ module.exports = function (grunt) {
     });
 
     /*加载插件*/
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
-
-    //特殊的任务
-    grunt.loadTasks("build/tasks");
+    grunt.loadNpmTasks('grunt-plug-insert');
 
     /*注册任务*/
-    grunt.registerTask('release', ['concat:target', 'build:target', 'clean:target', 'jshint:target', 'uglify:target']);
+    grunt.registerTask('release', ['insert:target', 'jshint:target', 'uglify:target']);
     grunt.registerTask('server', ['connect:server']);
 };
