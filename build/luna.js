@@ -4,15 +4,16 @@
 * 
 * author 心叶
 *
-* version 2.0.0next
+* version 2.0.1next
 * 
 * build Sat Jul 01 2017
 *
 * Copyright yelloxing
 * Released under the MIT license
 * 
-* Date:Wed Jan 09 2019 15:12:42 GMT+0800 (GMT+08:00)
+* Date:Fri Jan 25 2019 22:02:23 GMT+0800 (GMT+08:00)
 */
+
 /**
  * 浏览器端使用
  * 支持npm管理 + 浏览器直接引入
@@ -33,7 +34,8 @@
 
     var luna = {};
 
-    // 字符串html变成dom结点
+    
+// 字符串html变成dom结点
 // 该方法不支持svg等特殊标签
 var _string_to_dom = function (html_string) {
     var frameDiv = document.createElement("div");
@@ -45,6 +47,13 @@ var _string_to_dom = function (html_string) {
 var _is_dom = function (dom) {
     return (dom && (dom.nodeType === 1 || dom.nodeType === 11 || dom.nodeType === 9));
 };
+
+/**
+ * 复制文本到剪切板
+ * @param {string / dom} text 需要复制的字符串或结点（如果是结点，复制的是结点的innerText）
+ * @param {function} callback 正确回调
+ * @param {function} errorback 错误回调
+ */
 luna.clipboard_copy = function (text, callback, errorback) {
     if (_is_dom(text)) text = text.innerText;
 
@@ -81,6 +90,15 @@ luna.clipboard_copy = function (text, callback, errorback) {
     body.removeChild(document.getElementById("luna-clipboard-textarea-" + random));
 };
 
+
+/**
+ * 动画轮播
+ * @param {function} doback 轮询函数，有一个形参deep，0-1，表示执行进度
+ * @param {number} duration 动画时长，可选
+ * @param {function} callback 动画结束回调，可选，有一个形参deep，0-1，表示执行进度
+ * 
+ * @returns {function} 返回一个函数，调用该函数，可以提前结束动画
+ */
 luna.animation = function (doback, duration, callback) {
 
     var clock = {
@@ -178,6 +196,12 @@ luna.animation.interval = 13;
 luna.animation.speeds = 400;
 //定时器ID
 luna.animation.timerId = null;
+
+/**
+ * 获取一个结点的全部样式
+ * @param {dom} dom 被操作的结点
+ * @param {string} name 属性名称，可选，如果填了，只反对对应的属性值
+ */
 luna.dom_styles = function (dom, name) {
     if (!_is_dom(dom)) {
         throw new Error('DOM is required!');
@@ -196,8 +220,7 @@ luna.dom_styles = function (dom, name) {
         }
     }
 };
-    luna.version = '2.0.0next';
-    luna.author = '心叶';
+
 
     return luna;
 
